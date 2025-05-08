@@ -1,23 +1,21 @@
-//1
+
 function formatString(input: string, toUpper?: boolean): string {
   return toUpper === true || typeof toUpper === "undefined"
     ? input.toUpperCase()
     : input;
 }
 
-// console.log(formatString("hello"));
 
-//2
 function filterByRating(
   items: { title: string; rating: number }[]
 ): { title: string; rating: number }[] {
-  const books = [];
+  const filterByBooks = [];
   for (let item of items) {
     if (item.rating >= 4) {
-      books.push(item);
+      filterByBooks.push(item);
     }
   }
-  return books;
+  return filterByBooks;
 }
 
 const books = [
@@ -26,10 +24,7 @@ const books = [
   { title: "Book C", rating: 5.0 },
 ];
 
-const result = filterByRating(books);
-//console.log(result);
 
-// 3
 function concatenateArrays<T>(...arrays: T[][]): T[] {
   const concate: T[] = [];
   arrays.forEach((arr) => {
@@ -38,11 +33,6 @@ function concatenateArrays<T>(...arrays: T[][]): T[] {
   return concate;
 }
 
-const res2 = concatenateArrays(["a", "b"], ["c"]); // Output: ["a", "b", "c"]
-const res = concatenateArrays([1, 2], [3, 4], [5]); // Output: [1, 2, 3, 4, 5]
-//console.log(res2, res);
-
-//4
 class Vehicle {
   private make: string;
   private year: number;
@@ -68,11 +58,6 @@ class Car extends Vehicle {
   }
 }
 
-const myCar = new Car("Toyota", 2020, "Corolla");
-//console.log(myCar.getInfo());   // Output: "Make: Toyota, Year: 2020"
-//console.log(myCar.getModel());  // Output: "Model: Corolla"
-
-// 5
 
 function processValue(value: string | number): number {
   if (typeof value === "string") {
@@ -84,11 +69,7 @@ function processValue(value: string | number): number {
   return value;
 }
 
-const result1 = processValue("hello"); // Output: 5
-const result2 = processValue(10); // Output: 20
-//console.log(result1, result2);
 
-//6
 interface Product {
   name: string;
   price: number;
@@ -108,5 +89,30 @@ const products = [
   { name: "Bag", price: 50 },
 ];
 
-const maxItem = getMostExpensiveProduct(products);
-console.log(maxItem);
+
+enum Day {
+  Monday,
+  Tuesday,
+  Wednesday,
+  Thursday,
+  Friday,
+  Saturday,
+  Sunday,
+}
+
+function getDayType(day: Day): string {
+  if (day == Day.Saturday || day == Day.Sunday) {
+    return `Weekend`;
+  }
+  return `Weekday`;
+}
+
+
+async function squareAsync(n: number): Promise<number> {
+  if (n >= 1) {
+    return Math.pow(n, 2);
+  }
+  return Promise.reject(new Error("Negative number not allowed"));
+}
+
+
