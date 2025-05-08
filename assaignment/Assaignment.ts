@@ -18,12 +18,6 @@ function filterByRating(
   return filterByBooks;
 }
 
-const books = [
-  { title: "Book A", rating: 4.5 },
-  { title: "Book B", rating: 3.2 },
-  { title: "Book C", rating: 5.0 },
-];
-
 
 function concatenateArrays<T>(...arrays: T[][]): T[] {
   const concate: T[] = [];
@@ -62,8 +56,7 @@ class Car extends Vehicle {
 function processValue(value: string | number): number {
   if (typeof value === "string") {
     return value.length;
-  }
-  if (typeof value === "number") {
+  }else if (typeof value === "number") {
     return value * 2;
   }
   return value;
@@ -83,11 +76,6 @@ function getMostExpensiveProduct(products: Product[]): Product | null {
   return maxItem;
 }
 
-const products = [
-  { name: "Pen", price: 10 },
-  { name: "Notebook", price: 25 },
-  { name: "Bag", price: 50 },
-];
 
 
 enum Day {
